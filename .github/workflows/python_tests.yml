@@ -7,8 +7,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Debug
-      run: ls -R test-reports
 
     - name: Checkout event
       run: echo “🎉 The job was automatically triggered by a ${{ github.event_name }} event.”
