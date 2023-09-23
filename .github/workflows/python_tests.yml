@@ -1,0 +1,28 @@
+name: Python Tests
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x  # Escolha a versão do Python que você deseja usar
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt  # Se você tiver um arquivo de requisitos
+
+    - name: Run tests
+      run: python -m unittest discover
+
+    - name: Upload test results
+      uses: actions/upload-artifact@v2
+      with:
+        name: test-results
+        path: test-reports
